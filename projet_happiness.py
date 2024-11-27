@@ -98,10 +98,6 @@ df.loc[(df['Country name'] == 'Haiti') & (df['year'] == 2012), 'Healthy life exp
 df.loc[(df['Country name'] == 'Haiti') & (df['year'] == 2013), 'Healthy life expectancy at birth'] = 53.5
 df.loc[(df['Country name'] == 'Haiti') & (df['year'] == 2014), 'Healthy life expectancy at birth'] = 53.8
 
-### export en CSV
-
-df.to_csv("Data_Happiness.csv", index=False)
-
 ### Verification données aberrantes Life Expectancy at birth, le min s'explique par Haiti en 2010 big tremblement de terre
 
 import seaborn as sns
@@ -123,3 +119,69 @@ import matplotlib.pyplot as plt
 plt.figure()
 sns.boxplot(x='Life Ladder', data=df)
 plt.show()
+
+df.dtypes
+
+df["Country name"].unique()
+
+classification = {
+    'Afghanistan': 'Sous-Développé', 'Albania': 'En Développement', 'Algeria': 'En Développement',
+    'Angola': 'En Développement', 'Argentina': 'En Développement', 'Armenia': 'En Développement',
+    'Australia': 'Développé', 'Austria': 'Développé', 'Azerbaijan': 'En Développement',
+    'Bahrain': 'Développé', 'Bangladesh': 'En Développement', 'Belarus': 'En Développement',
+    'Belgium': 'Développé', 'Belize': 'En Développement', 'Benin': 'Sous-Développé', 'Bhutan': 'Sous-Développé',
+    'Bolivia': 'En Développement', 'Bosnia and Herzegovina': 'En Développement', 'Botswana': 'En Développement',
+    'Brazil': 'En Développement', 'Bulgaria': 'En Développement', 'Burkina Faso': 'Sous-Développé',
+    'Burundi': 'Sous-Développé', 'Cambodia': 'Sous-Développé', 'Cameroon': 'Sous-Développé',
+    'Canada': 'Développé', 'Central African Republic': 'Sous-Développé', 'Chad': 'Sous-Développé',
+    'Chile': 'Développé', 'China': 'En Développement', 'Colombia': 'En Développement', 'Comoros': 'Sous-Développé',
+    'Congo (Brazzaville)': 'Sous-Développé', 'Congo (Kinshasa)': 'Sous-Développé', 'Costa Rica': 'En Développement',
+    'Croatia': 'Développé', 'Cuba': 'En Développement', 'Cyprus': 'Développé', 'Czechia': 'Développé',
+    'Denmark': 'Développé', 'Djibouti': 'Sous-Développé', 'Dominican Republic': 'En Développement',
+    'Ecuador': 'En Développement', 'Egypt': 'En Développement', 'El Salvador': 'En Développement',
+    'Estonia': 'Développé', 'Eswatini': 'Sous-Développé', 'Ethiopia': 'Sous-Développé', 'Finland': 'Développé',
+    'France': 'Développé', 'Gabon': 'En Développement', 'Gambia': 'Sous-Développé', 'Georgia': 'En Développement',
+    'Germany': 'Développé', 'Ghana': 'Sous-Développé', 'Greece': 'Développé', 'Guatemala': 'Sous-Développé',
+    'Guinea': 'Sous-Développé', 'Guyana': 'En Développement', 'Haiti': 'Sous-Développé', 'Honduras': 'Sous-Développé',
+    'Hong Kong S.A.R. of China': 'Développé', 'Hungary': 'Développé', 'Iceland': 'Développé',
+    'India': 'En Développement', 'Indonesia': 'En Développement', 'Iran': 'En Développement',
+    'Iraq': 'En Développement', 'Ireland': 'Développé', 'Israel': 'Développé', 'Italy': 'Développé',
+    'Ivory Coast': 'En Développement', 'Jamaica': 'En Développement', 'Japan': 'Développé',
+    'Jordan': 'En Développement', 'Kazakhstan': 'En Développement', 'Kenya': 'Sous-Développé', 'Kosovo': 'En Développement',
+    'Kuwait': 'Développé', 'Kyrgyzstan': 'Sous-Développé', 'Laos': 'Sous-Développé', 'Latvia': 'Développé',
+    'Lebanon': 'En Développement', 'Lesotho': 'Sous-Développé', 'Liberia': 'Sous-Développé', 'Libya': 'En Développement',
+    'Lithuania': 'Développé', 'Luxembourg': 'Développé', 'Madagascar': 'Sous-Développé', 'Malawi': 'Sous-Développé',
+    'Malaysia': 'En Développement', 'Maldives': 'En Développement', 'Mali': 'Sous-Développé', 'Malta': 'Développé',
+    'Mauritania': 'Sous-Développé', 'Mauritius': 'En Développement', 'Mexico': 'En Développement',
+    'Moldova': 'En Développement', 'Mongolia': 'En Développement', 'Montenegro': 'En Développement',
+    'Morocco': 'En Développement', 'Mozambique': 'Sous-Développé', 'Myanmar': 'Sous-Développé', 'Namibia': 'En Développement',
+    'Nepal': 'Sous-Développé', 'Netherlands': 'Développé', 'New Zealand': 'Développé', 'Nicaragua': 'Sous-Développé',
+    'Niger': 'Sous-Développé', 'Nigeria': 'Sous-Développé', 'North Macedonia': 'En Développement', 'Norway': 'Développé',
+    'Oman': 'Développé', 'Pakistan': 'En Développement', 'Panama': 'En Développement', 'Paraguay': 'En Développement',
+    'Peru': 'En Développement', 'Philippines': 'En Développement', 'Poland': 'Développé', 'Portugal': 'Développé',
+    'Qatar': 'Développé', 'Romania': 'En Développement', 'Russia': 'En Développement', 'Rwanda': 'Sous-Développé',
+    'Saudi Arabia': 'Développé', 'Senegal': 'Sous-Développé', 'Serbia': 'En Développement', 'Sierra Leone': 'Sous-Développé',
+    'Singapore': 'Développé', 'Slovakia': 'Développé', 'Slovenia': 'Développé', 'Somalia': 'Sous-Développé',
+    'Somaliland region': 'Sous-Développé', 'South Africa': 'En Développement', 'South Korea': 'Développé',
+    'South Sudan': 'Sous-Développé', 'Spain': 'Développé', 'Sri Lanka': 'En Développement', 'State of Palestine': 'Sous-Développé',
+    'Sudan': 'Sous-Développé', 'Suriname': 'En Développement', 'Sweden': 'Développé', 'Switzerland': 'Développé',
+    'Syria': 'Sous-Développé', 'Taiwan Province of China': 'Développé', 'Tajikistan': 'Sous-Développé',
+    'Tanzania': 'Sous-Développé', 'Thailand': 'En Développement', 'Togo': 'Sous-Développé',
+    'Trinidad and Tobago': 'Développé', 'Tunisia': 'En Développement', 'Turkmenistan': 'En Développement',
+    'Türkiye': 'En Développement', 'Uganda': 'Sous-Développé', 'Ukraine': 'En Développement',
+    'United Arab Emirates': 'Développé', 'United Kingdom': 'Développé', 'United States': 'Développé',
+    'Uruguay': 'Développé', 'Uzbekistan': 'En Développement', 'Venezuela': 'En Développement', 'Vietnam': 'En Développement',
+    'Yemen': 'Sous-Développé', 'Zambia': 'Sous-Développé', 'Zimbabwe': 'Sous-Développé'
+}
+
+
+# Ajouter une colonne "Category" en utilisant le dictionnaire de classification
+df['Category'] = df['Country name'].map(classification)
+
+df
+
+### export en CSV
+
+df.to_csv("Data_Happiness.csv", index=False)
+
+df[df['Category'] == 'Sous-Développé']
